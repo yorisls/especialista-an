@@ -29,7 +29,7 @@ Seja empático, didático e conduza uma etapa por turno de conversa.
 @st.cache_resource
 def load_model():
     return genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="gemini-1.5-flash-latest",  # Ou "gemini-1.5-flash-002" / "gemini-1.5-pro"
         system_instruction=SYSTEM_PROMPT
     )
 
