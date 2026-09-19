@@ -33,7 +33,7 @@ Seja empático, didático e conduza uma etapa por turno de conversa.
 # 3. Inicializa a sessão de chat mantendo o histórico
 if "chat" not in st.session_state:
     st.session_state.chat = client.chats.create(
-        model="gemini-2.5-flash",  # Modelo padrão atualizado e estável
+        model="gemini-2.5-flash",  # Nome do modelo atualizado e ativo
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT,
             temperature=0.7,
@@ -43,7 +43,6 @@ if "chat" not in st.session_state:
 # 4. Exibe o histórico de mensagens na tela
 for message in st.session_state.chat.get_history():
     role = "user" if message.role == "user" else "assistant"
-    # Pega o conteúdo de texto da mensagem
     text_content = message.parts[0].text if message.parts else ""
     if text_content:
         with st.chat_message(role):
